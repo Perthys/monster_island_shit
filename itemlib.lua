@@ -48,7 +48,7 @@ local WeaponType = {
 }
 
 local Library = {}
-local function Library.GetItems(Items)
+function Library.GetItems(Items)
 
     assert(#Items == 6, "Invalid Amount of Items")
     
@@ -64,12 +64,12 @@ local function Library.GetItems(Items)
     wait()
 end
 
-local function Library.ApplyEquipment()
+function Library.ApplyEquipment()
     Remote:InvokeServer("ApplyEquipment")
     wait()
 end
 
-local function Library.ApplyAllPotions()
+function Library.ApplyAllPotions()
     for Index, Potion in pairs(Character:GetChildren()) do
         if Potion:IsA("Tool") then
             local Doses    = Potion:FindFirstChild("Doses")
@@ -107,7 +107,7 @@ local function Library.ApplyAllPotions()
     end
 end
 
-local function Library.ClearAllParticles()
+function Library.ClearAllParticles()
     for Index, Particles in pairs(Character:GetDescendants()) do
         if Particles:IsA("ParticleEmitter") then
             Particles:Destroy()
